@@ -12,8 +12,8 @@ android {
         applicationId = "com.tc.vacuumstudy"
         minSdk = 23
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = 3
+        versionName = "1.2"
     }
 
     signingConfigs {
@@ -51,6 +51,14 @@ val preparePortalAssets by tasks.registering(Sync::class) {
         "真空技術第5章至第6章--給學生(5).pdf" to "vacuum_lecture_05_06.pdf",
         "光學薄膜技術講義印製--新--給學生(4).pdf" to "optical_film_lecture.pdf",
     )
+    val webAssets = listOf(
+        "tc-vacuum-icon.png",
+        "apple-touch-icon.png",
+        "icon-192.png",
+        "icon-512.png",
+        "manifest.webmanifest",
+        "sw.js",
+    )
 
     from(htmlFile) {
         rename { "index.html" }
@@ -67,6 +75,9 @@ val preparePortalAssets by tasks.registering(Sync::class) {
         from(portalRoot.resolve(sourceName)) {
             rename { assetName }
         }
+    }
+    webAssets.forEach { assetName ->
+        from(portalRoot.resolve(assetName))
     }
     into(portalAssets)
 }

@@ -27,6 +27,14 @@ public class MainActivity extends Activity {
             "vacuum_lecture_05_06.pdf",
             "optical_film_lecture.pdf"
     ));
+    private static final Set<String> WEB_ASSETS = new HashSet<>(Arrays.asList(
+            "tc-vacuum-icon.png",
+            "apple-touch-icon.png",
+            "icon-192.png",
+            "icon-512.png",
+            "manifest.webmanifest",
+            "sw.js"
+    ));
 
     private WebView webView;
 
@@ -66,6 +74,26 @@ public class MainActivity extends Activity {
                                 getAssets().open("index.html"));
                     } catch (IOException ignored) {
                         return new WebResourceResponse("text/plain", "UTF-8", null);
+                    }
+                }
+                if (PORTAL_HOST.equals(uri.getHost())) {
+                    String path = uri.getPath();
+                    String assetName = path != null && path.startsWith("/")
+                            ? path.substring(1)
+                            : "";
+                    if (WEB_ASSETS.contains(assetName)) {
+                        try {
+                            String mimeType = "image/png";
+                            if ("manifest.webmanifest".equals(assetName)) {
+                                mimeType = "application/manifest+json";
+                            } else if ("sw.js".equals(assetName)) {
+                                mimeType = "text/javascript";
+                            }
+                            return new WebResourceResponse(mimeType, "UTF-8",
+                                    getAssets().open(assetName));
+                        } catch (IOException ignored) {
+                            return new WebResourceResponse("text/plain", "UTF-8", null);
+                        }
                     }
                 }
                 return super.shouldInterceptRequest(view, request);
