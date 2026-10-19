@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ttc-vacuum-pwa-v9';
+const CACHE_NAME = 'ttc-vacuum-pwa-v10';
 const APP_SHELL = [
   './',
   './index.html',

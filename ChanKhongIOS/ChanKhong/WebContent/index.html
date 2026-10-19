@@ -413,6 +413,37 @@
       .review-topic-group-head>span{padding:6px 8px}
       .study-materials{margin-top:24px;padding-top:16px}
     }
+  </style>  <style id="mobile-layout-polish">
+    #setup-card .select-row:not(.hidden){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:14px}
+    #setup-card .select-row:not(.hidden) .field{display:flex;min-width:0;flex-direction:column;gap:8px;margin:0}
+    #setup-card .select-row:not(.hidden) .field-label{display:flex;align-items:flex-end;min-height:2.6em;margin:0;line-height:1.4;font-size:13px;font-weight:650;letter-spacing:.01em}
+    #setup-card .select-row:not(.hidden) .field input,#setup-card .select-row:not(.hidden) .field select{box-sizing:border-box;display:block;width:100%;height:58px;min-height:58px;margin:0;padding:0 15px;border-radius:14px;font:inherit;font-size:16px;line-height:1.3}
+    #setup-card .select-row:not(.hidden) .field select{padding-right:42px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%235e718a%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22m7 10 5 5 5-5%22/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px 18px}
+    #setup-card .select-row:not(.hidden) .field input[type="number"]{appearance:textfield;-moz-appearance:textfield}
+    #setup-card .select-row:not(.hidden) .field input[type="number"]::-webkit-inner-spin-button,#setup-card .select-row:not(.hidden) .field input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+    #setup-card .setup-foot{max-width:46ch;margin:16px auto 0;font-size:12px;line-height:1.75;text-wrap:pretty}
+    .landing .hero-copy{line-height:1.78;text-wrap:pretty}
+    .study-link-copy strong{line-height:1.45;letter-spacing:-.015em}
+    .study-link-copy small{line-height:1.7;text-wrap:pretty}
+    .app-bottom-nav .nav-icon{display:grid;width:24px;height:24px;flex:0 0 24px;place-items:center;font-size:0;line-height:0}
+    .app-bottom-nav .nav-icon svg{display:block;width:22px;height:22px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}
+    @media(max-width:700px){
+      body{padding-bottom:calc(92px + env(safe-area-inset-bottom))!important}
+      .app-bottom-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch;gap:4px;min-height:76px;padding:7px 10px calc(7px + env(safe-area-inset-bottom))}
+      .app-bottom-nav button{display:flex;min-width:0;min-height:60px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:6px 2px;border-radius:14px;font-size:12px;line-height:1.15}
+      .app-bottom-nav button>span:last-child{font-size:12px;line-height:1.15;letter-spacing:.01em}
+    }
+    @media(max-width:480px){
+      .landing .hero h1{max-width:100%;font-size:clamp(32px,9vw,38px);line-height:1.2;letter-spacing:-.045em;margin:18px 0 14px}
+      .landing .hero h1 span{display:inline-block;white-space:nowrap;font-size:clamp(27px,8vw,34px);letter-spacing:-.055em}
+      .landing .hero-copy{max-width:36ch;font-size:14px;line-height:1.75}
+      #setup-card .select-row:not(.hidden){gap:10px}
+      #setup-card .select-row:not(.hidden) .field-label{font-size:12px;min-height:2.8em;line-height:1.45}
+      #setup-card .select-row:not(.hidden) .field input,#setup-card .select-row:not(.hidden) .field select{height:56px;min-height:56px;padding-left:12px;font-size:15px}
+      #setup-card .select-row:not(.hidden) .field select{padding-right:36px;background-position:right 10px center}
+      #setup-card .setup-foot{font-size:11px;line-height:1.7}
+    }
+    body[data-theme="dark"] #setup-card .select-row:not(.hidden) .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23c3cfdf%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22m7 10 5 5 5-5%22/%3E%3C/svg%3E")}
   </style></head>
 <body class="auth-checking" data-theme="dark">
   <section id="first-open-gate" role="dialog" aria-modal="true" aria-labelledby="first-open-title">
@@ -601,10 +632,10 @@
     </section>
   </main>
   <nav class="app-bottom-nav" aria-label="主要導覽">
-    <button type="button" data-app-nav="practice" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><span>練習</span></button>
-    <button type="button" data-app-nav="study"><span class="nav-icon" aria-hidden="true">▤</span><span>複習</span></button>
-    <button type="button" data-app-nav="progress"><span class="nav-icon" aria-hidden="true">◴</span><span>進度</span></button><button type="button" data-app-nav="stats"><span class="nav-icon" aria-hidden="true">◷</span><span>統計</span></button>
-    <button type="button" data-app-nav="lookup"><span class="nav-icon" aria-hidden="true">⌕</span><span>查題</span></button>
+    <button type="button" data-app-nav="practice" aria-current="page"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m3.5 10.5 8.5-7 8.5 7v9a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/></svg></span><span>練習</span></button>
+    <button type="button" data-app-nav="study"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span>複習</span></button>
+    <button type="button" data-app-nav="progress"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg></span><span>進度</span></button><button type="button" data-app-nav="stats"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 20h16M6.5 16.5l4-4 3 2 5-7"/><circle cx="18.5" cy="7.5" r="1"/></svg></span><span>統計</span></button>
+    <button type="button" data-app-nav="lookup"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg></span><span>查題</span></button>
   </nav>
   <footer class="portal-signature"><strong>TC</strong> ・ 以好奇心探索真空，以練習把理解變成能力。</footer>
   <div class="toast" id="toast" role="status"></div>
