@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "TTC 真空技術學習室",
+  "short_name": "TTC 真空學習",
+  "description": "真空技術與光學薄膜逐章練習、複習與學習統計",
+  "lang": "zh-Hant",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#0b0f19",
+  "icons": [
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+  ]
+}
