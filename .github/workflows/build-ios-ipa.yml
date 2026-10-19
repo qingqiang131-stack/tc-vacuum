@@ -62,6 +62,10 @@ jobs:
           echo "profile_uuid=$PROFILE_UUID" >> "$GITHUB_OUTPUT"
           echo "keychain_path=$KEYCHAIN_PATH" >> "$GITHUB_OUTPUT"
 
+      - name: Restore lesson PDFs
+        shell: bash
+        run: bash .github/scripts/reassemble-pdfs.sh
+
       - name: Archive and export IPA
         shell: bash
         env:

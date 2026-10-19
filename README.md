@@ -1,24 +1,13 @@
-Warning: fs was declared with const; use let for reassignable variables.
 # TTC 真空學習室 iOS
 
-Đây là dự án Xcode cho iPhone, đóng gói file HTML được cung cấp cùng ba PDF. Trang học và tài liệu được lưu trong ứng dụng nên có thể mở ngoại tuyến.
+Ứng dụng iPhone dùng SwiftUI và WKWebView để mở trang học cùng ba tài liệu PDF, kể cả khi ngoại tuyến.
 
-## Xuất IPA từ Windows bằng GitHub Actions
+## Tạo IPA trên Windows
 
-Windows không biên dịch iOS tại chỗ; GitHub Actions sẽ chạy Xcode trên một máy macOS được cấp cho workflow. Trước khi chạy, cần một GitHub repo và signing assets hợp lệ từ tài khoản Apple Developer.
+GitHub Actions chạy Xcode trên máy macOS. Workflow nằm tại `.github/workflows/build-ios-ipa.yml` và có thể chạy trong **Actions → Build iOS IPA → Run workflow** sau khi thiết lập signing.
 
-1. Đưa toàn bộ repo này lên GitHub. Workflow nằm ở `.github/workflows/build-ios-ipa.yml`.
-2. Trong **Settings → Secrets and variables → Actions**, tạo repository variable `IOS_BUNDLE_ID` với mã duy nhất (ví dụ tên miền bạn sở hữu theo dạng `com.tenban.ttcvacuumstudy`).
-3. Tạo các repository secrets sau: `IOS_CERTIFICATE_BASE64` (file `.p12` đã mã hóa Base64), `IOS_CERTIFICATE_PASSWORD`, `IOS_PROVISIONING_PROFILE_BASE64` (file `.mobileprovision` đã mã hóa Base64), `IOS_TEAM_ID`, và `KEYCHAIN_PASSWORD` (mật khẩu bất kỳ mới dùng riêng cho keychain tạm trong CI).
-4. Vào **Actions → Build iOS IPA → Run workflow**. Chọn `development` hoặc `ad-hoc` và chạy.
-5. Khi workflow hoàn tất, tải artifact `ChanKhong-IPA` từ trang run. Artifact được lưu trong 7 ngày.
+Trong repository này, ba PDF được lưu thành các phần nhỏ ở `build-assets/pdf-parts/`. Workflow ghép lại các phần trước khi build; IPA cuối cùng chứa các PDF đầy đủ.
 
-Profile và certificate phải khớp với loại phân phối đã chọn, Bundle ID và iPhone đích. Với `ad-hoc`, provisioning profile phải bao gồm UDID của iPhone cần cài. Không gửi certificate/password vào chat; chỉ nhập chúng vào GitHub Secrets.
+Cần tạo repository variable `IOS_BUNDLE_ID` và secrets `IOS_CERTIFICATE_BASE64`, `IOS_CERTIFICATE_PASSWORD`, `IOS_PROVISIONING_PROFILE_BASE64`, `IOS_TEAM_ID`, `KEYCHAIN_PASSWORD`. Certificate, provisioning profile, Bundle ID và thiết bị phải khớp với kiểu phân phối đã chọn. Với `ad-hoc`, provisioning profile phải chứa UDID iPhone cần cài. Không gửi certificate hoặc mật khẩu vào chat; nhập chúng trực tiếp vào GitHub Secrets.
 
-Nếu có máy Mac, có thể mở `ChanKhong.xcodeproj` trong Xcode, chọn Apple Development Team, rồi chạy trực tiếp lên iPhone hoặc dùng **Product → Archive** để xuất IPA.
-
-## Thành phần
-
-- `ChanKhong/ChanKhongApp.swift`: ứng dụng SwiftUI mở nội dung bằng WKWebView.
-- `ChanKhong/WebContent/`: trang HTML gốc và ba PDF.
-- `ChanKhong/Assets.xcassets/`: biểu tượng ứng dụng.
+Xem [hướng dẫn đầy đủ](ChanKhongIOS/README.md).

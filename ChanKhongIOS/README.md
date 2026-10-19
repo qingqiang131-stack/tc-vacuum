@@ -2,6 +2,8 @@
 
 Đây là dự án Xcode cho iPhone, đóng gói file HTML được cung cấp cùng ba PDF. Trang học và tài liệu được lưu trong ứng dụng nên có thể mở ngoại tuyến.
 
+Trên GitHub, các PDF được lưu thành những phần nhỏ trong `build-assets/pdf-parts/` để phù hợp giới hạn tải tệp. Workflow tự ghép lại ba PDF trước khi chạy Xcode; bản IPA vẫn có đầy đủ tài liệu.
+
 ## Xuất IPA từ Windows bằng GitHub Actions
 
 Windows không biên dịch iOS tại chỗ; GitHub Actions sẽ chạy Xcode trên một máy macOS được cấp cho workflow. Trước khi chạy, cần một GitHub repo và signing assets hợp lệ từ tài khoản Apple Developer.
