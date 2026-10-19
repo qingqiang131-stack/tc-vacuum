@@ -7,6 +7,10 @@ shopt -s nullglob
 first_parts=("$parts_dir"/*.part000)
 
 if ((${#first_parts[@]} == 0)); then
+  if compgen -G "$web_content/*.pdf" >/dev/null; then
+    echo "No split PDF parts found; using the existing lesson PDFs."
+    exit 0
+  fi
   echo "No lesson PDF parts found in $parts_dir" >&2
   exit 1
 fi
