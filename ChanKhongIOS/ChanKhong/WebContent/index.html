@@ -364,8 +364,47 @@
    body[data-theme="light"] .home-progress-card{border-color:#d5e3f7;background:radial-gradient(circle at 86% 18%,rgba(116,200,246,.24),transparent 18rem),linear-gradient(120deg,#e5f2ff,#e8eaff 57%,#f3e8f5);color:#203653;box-shadow:0 16px 36px rgba(45,75,125,.11)}body[data-theme="light"] .home-progress-card:after{border-color:rgba(60,95,150,.12);box-shadow:0 0 0 24px rgba(60,95,150,.04),0 0 0 50px rgba(60,95,150,.025)}body[data-theme="light"] .home-progress-kicker{border-color:#c9dbf2;background:rgba(255,255,255,.55);color:#416294}body[data-theme="light"] .home-progress-kicker:before{background:#24b99a;box-shadow:0 0 10px #24b99a}body[data-theme="light"] .home-progress-copy h2{color:#203653}body[data-theme="light"] .home-progress-copy>p{color:#566d8a}body[data-theme="light"] .home-progress-copy>p strong{color:#2d4d76}body[data-theme="light"] .home-progress-next{color:#71849f}body[data-theme="light"] .home-progress-track{border-color:#cbd9eb;background:#d3deec}body[data-theme="light"] .home-progress-open{border-color:#c3d4ec;background:rgba(255,255,255,.72);color:#31517a}body[data-theme="light"] .home-progress-open:hover{background:#fff;border-color:#9eb8dc}body[data-theme="light"] .home-progress-open span{color:#377ed0}body[data-theme="light"] .home-progress-ring:before{border-color:rgba(255,255,255,.72);background:#fff}body[data-theme="light"] .home-progress-ring-center strong{color:#284568}body[data-theme="light"] .home-progress-ring-center span{color:#7386a0}
    @media(max-width:700px){.home-summary-actions{flex-direction:column;align-items:stretch}.home-summary-actions .view-stats-btn{font-size:10px;padding:7px 8px}}
  </style>
+<style id="first-open-gate-style">
+  body.auth-checking{overflow:hidden}
+  body.auth-checking>:not(#first-open-gate){visibility:hidden!important}
+  body.auth-locked{overflow:hidden}
+  #first-open-gate{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top)) 20px max(24px,env(safe-area-inset-bottom));overflow-y:auto;background:radial-gradient(ellipse at 50% 0%,#17386b 0%,#0a1428 48%,#070b14 100%);color:#edf4ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+  #first-open-gate[hidden]{display:none}
+  .first-open-card{width:min(100%,430px);padding:32px 28px 26px;border:1px solid #ffffff20;border-radius:24px;background:#101a2ceF;box-shadow:0 24px 80px #0008;backdrop-filter:blur(18px)}
+  .first-open-brand{display:flex;align-items:center;gap:12px;margin-bottom:24px;font-size:12px;font-weight:800;letter-spacing:.12em;color:#7de9f7}
+  .first-open-brand img{width:48px;height:48px;border-radius:14px;object-fit:cover;box-shadow:0 0 24px #42d7ee35}
+  .first-open-card h1{margin:0 0 10px;font-size:25px;line-height:1.25;letter-spacing:-.04em;color:#fff}
+  .first-open-copy{margin:0 0 24px;color:#bac8dc;font-size:14px;line-height:1.7}
+  .first-open-field{display:block;margin:16px 0 0;color:#dce8fa;font-size:13px;font-weight:700}
+  .first-open-field input{display:block;width:100%;margin-top:7px;padding:13px 14px;border:1px solid #344861;border-radius:11px;background:#081222;color:#fff;font:inherit;letter-spacing:.04em;outline:none}
+  .first-open-field input:focus{border-color:#42d7ee;box-shadow:0 0 0 3px #42d7ee22}
+  .first-open-submit{width:100%;margin-top:22px;padding:14px;border:0;border-radius:11px;background:linear-gradient(100deg,#43d5e8,#8df4d1);color:#071421;font-family:inherit;font-size:15px;line-height:1.2;font-weight:800;cursor:pointer}
+  .first-open-submit:disabled{opacity:.65;cursor:wait}
+  #first-open-status{min-height:22px;margin:12px 0 0;color:#ffb1a6;font-size:12px;line-height:1.6}
+  #first-open-status[data-kind="info"]{color:#9ee6d1}
+  .first-open-foot{margin:13px 0 0;color:#8090a8;font-size:11px;line-height:1.6;text-align:center}
+  @media(max-width:480px){.first-open-card{padding:27px 22px 22px}.first-open-card h1{font-size:23px}}
+</style>
 </head>
-<body data-theme="dark">
+<body class="auth-checking" data-theme="dark">
+  <section id="first-open-gate" role="dialog" aria-modal="true" aria-labelledby="first-open-title">
+    <div class="first-open-card">
+      <div class="first-open-brand"><img src="./tc-vacuum-icon.png" alt=""><span>TC VACUUM STUDY</span></div>
+      <h1 id="first-open-title">首次使用，設定裝置密碼</h1>
+      <p class="first-open-copy">請自行建立 6 位以上的密碼並確認一次。設定成功後，這台裝置會記住開啟狀態，不會再要求輸入。</p>
+      <form id="first-open-form" novalidate>
+        <label class="first-open-field" for="first-open-password">設定密碼
+          <input id="first-open-password" type="password" autocomplete="new-password" minlength="6" required>
+        </label>
+        <label class="first-open-field" for="first-open-confirm">再次輸入密碼
+          <input id="first-open-confirm" type="password" autocomplete="new-password" minlength="6" required>
+        </label>
+        <button class="first-open-submit" id="first-open-submit" type="submit">設定並進入學習室</button>
+        <p id="first-open-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="first-open-foot">狀態會儲存在此裝置。清除瀏覽器資料、重新安裝或更換裝置後，需要重新設定。</p>
+    </div>
+  </section>
   <header class="portal-header"><div class="shell topbar">
     <div class="brand"><div class="brand-mark" title="TTC 真空技術學習室"><img src="./tc-vacuum-icon.png" alt="TTC 真空技術" /></div><div class="brand-name">真空技術學習室 <span class="brand-pro">TC 專業認證版</span><small>模擬測驗 ・ 章節練習 ・ 智慧複習</small></div></div>
     <div class="top-actions"><button class="lookup-nav-btn" type="button" data-app-nav="lookup"><span aria-hidden="true">⌕</span> 查詢題目</button><button class="theme-toggle" id="theme-toggle" type="button" aria-label="切換至淺色模式"><span class="theme-icon" id="theme-icon" aria-hidden="true">☀</span><span id="theme-label">淺色模式</span><span class="theme-switch-indicator" aria-hidden="true"></span></button></div>
@@ -802,6 +841,64 @@
         select.addEventListener('change', refreshPicker);
         new MutationObserver(refreshPicker).observe(select, { childList: true, subtree: true, attributes: true, attributeFilter: ['disabled'] });
         refreshPicker();
+      });
+    })();
+  </script>
+  <script id="first-open-gate-script">
+    (() => {
+      const unlockKey = 'tc-vacuum-study-first-open-v1';
+      const gate = document.getElementById('first-open-gate');
+      const form = document.getElementById('first-open-form');
+      const password = document.getElementById('first-open-password');
+      const confirmation = document.getElementById('first-open-confirm');
+      const submit = document.getElementById('first-open-submit');
+      const status = document.getElementById('first-open-status');
+      const showStatus = (message, kind = 'error') => {
+        status.textContent = message;
+        status.dataset.kind = kind;
+      };
+      const openStudyRoom = () => {
+        gate.hidden = true;
+        document.body.classList.remove('auth-checking', 'auth-locked');
+      };
+
+      try {
+        if (localStorage.getItem(unlockKey) === '1') {
+          openStudyRoom();
+          return;
+        }
+      } catch (error) {
+        showStatus('瀏覽器封鎖了本機儲存，請允許此網站儲存資料後再設定。');
+      }
+
+      document.body.classList.remove('auth-checking');
+      document.body.classList.add('auth-locked');
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        showStatus('');
+        const first = password.value.trim();
+        const second = confirmation.value.trim();
+        if (first.length < 6) {
+          showStatus('密碼至少需要 6 個字元。');
+          password.focus();
+          return;
+        }
+        if (first !== second) {
+          showStatus('兩次輸入的密碼不一致，請重新確認。');
+          confirmation.focus();
+          return;
+        }
+        submit.disabled = true;
+        try {
+          localStorage.setItem(unlockKey, '1');
+          password.value = '';
+          confirmation.value = '';
+          openStudyRoom();
+        } catch (error) {
+          showStatus('無法記住此裝置的開啟狀態。請檢查瀏覽器儲存設定後重試。');
+        } finally {
+          submit.disabled = false;
+        }
       });
     })();
   </script>
