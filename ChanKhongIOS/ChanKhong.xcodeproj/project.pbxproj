@@ -1,0 +1,134 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* ChanKhongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* ChanKhongApp.swift */; };
+		A10000000000000000000002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* Assets.xcassets */; };
+		A10000000000000000000003 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* index.html */; };
+		A10000000000000000000004 /* vacuum chapters 0-4 in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000004 /* vacuum chapters 0-4 */; };
+		A10000000000000000000005 /* vacuum chapters 5-6 in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000005 /* vacuum chapters 5-6 */; };
+		A10000000000000000000006 /* optics lecture in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000006 /* optics lecture */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A20000000000000000000001 /* ChanKhongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChanKhongApp.swift; sourceTree = "<group>"; };
+		A20000000000000000000002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A20000000000000000000003 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		A20000000000000000000004 /* 真空技術第0章至第4章--給學生(5).pdf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "真空技術第0章至第4章--給學生(5).pdf"; sourceTree = "<group>"; };
+		A20000000000000000000005 /* 真空技術第5章至第6章--給學生(5).pdf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "真空技術第5章至第6章--給學生(5).pdf"; sourceTree = "<group>"; };
+		A20000000000000000000006 /* 光學薄膜技術講義印製--新--給學生(4).pdf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "光學薄膜技術講義印製--新--給學生(4).pdf"; sourceTree = "<group>"; };
+		A20000000000000000000007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20000000000000000000008 /* ChanKhong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChanKhong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A30000000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A40000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A40000000000000000000002 /* ChanKhong */,
+				A40000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A40000000000000000000002 /* ChanKhong */ = {
+			isa = PBXGroup;
+			path = ChanKhong;
+			sourceTree = "<group>";
+			children = (
+				A20000000000000000000001 /* ChanKhongApp.swift */,
+				A20000000000000000000007 /* Info.plist */,
+				A20000000000000000000002 /* Assets.xcassets */,
+				A40000000000000000000004 /* WebContent */,
+			);
+		};
+		A40000000000000000000003 /* Products */ = {isa = PBXGroup; name = Products; sourceTree = "<group>"; children = (A20000000000000000000008 /* ChanKhong.app */,); };
+		A40000000000000000000004 /* WebContent */ = {
+			isa = PBXGroup;
+			path = WebContent;
+			sourceTree = "<group>";
+			children = (
+				A20000000000000000000003 /* index.html */,
+				A20000000000000000000004 /* vacuum chapters 0-4 */,
+				A20000000000000000000005 /* vacuum chapters 5-6 */,
+				A20000000000000000000006 /* optics lecture */,
+			);
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A50000000000000000000001 /* ChanKhong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A90000000000000000000002 /* Build configuration list for PBXNativeTarget "ChanKhong" */;
+			buildPhases = (
+				A60000000000000000000001 /* Sources */,
+				A30000000000000000000001 /* Frameworks */,
+				A60000000000000000000002 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = ChanKhong;
+			productName = ChanKhong;
+			productReference = A20000000000000000000008 /* ChanKhong.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A60000000000000000000001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001 /* ChanKhongApp.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A60000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000002 /* Assets.xcassets in Resources */,
+				A10000000000000000000003 /* index.html in Resources */,
+				A10000000000000000000004 /* vacuum chapters 0-4 in Resources */,
+				A10000000000000000000005 /* vacuum chapters 5-6 in Resources */,
+				A10000000000000000000006 /* optics lecture in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXProject section */
+		A70000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {BuildIndependentTargetsInParallel = 1; LastUpgradeCheck = 1600; TargetAttributes = {A50000000000000000000001 = {CreatedOnToolsVersion = 16.0; }; }; };
+			buildConfigurationList = A90000000000000000000001 /* Build configuration list for PBXProject "ChanKhong" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "zh-Hant";
+			hasScannedForEncodings = 0;
+			knownRegions = (en, "zh-Hant", Base);
+			mainGroup = A40000000000000000000001;
+			productRefGroup = A40000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A50000000000000000000001 /* ChanKhong */,);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		A80000000000000000000001 /* Debug project */ = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.0; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; }; name = Debug; };
+		A80000000000000000000002 /* Release project */ = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.0; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; }; name = Release; };
+		A80000000000000000000003 /* Debug target */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = ChanKhong/Info.plist; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.example.ttcvacuumstudy; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
+		A80000000000000000000004 /* Release target */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = ChanKhong/Info.plist; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.example.ttcvacuumstudy; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A90000000000000000000001 /* Build configuration list for PBXProject "ChanKhong" */ = {isa = XCConfigurationList; buildConfigurations = (A80000000000000000000001 /* Debug project */, A80000000000000000000002 /* Release project */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A90000000000000000000002 /* Build configuration list for PBXNativeTarget "ChanKhong" */ = {isa = XCConfigurationList; buildConfigurations = (A80000000000000000000003 /* Debug target */, A80000000000000000000004 /* Release target */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+
+	};
+	rootObject = A70000000000000000000001 /* Project object */;
+}
