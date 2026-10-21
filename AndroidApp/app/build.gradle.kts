@@ -12,8 +12,8 @@ android {
         applicationId = "com.tc.vacuumstudy"
         minSdk = 23
         targetSdk = 34
-        versionCode = 5
-        versionName = "1.4"
+        versionCode = 6
+        versionName = "1.5"
     }
 
     signingConfigs {
@@ -44,6 +44,10 @@ val preparePortalAssets by tasks.registering(Sync::class) {
     val portalRoot = System.getenv("TC_VACUUM_WEB_CONTENT_DIR")
         ?.takeIf { it.isNotBlank() }
         ?.let { file(it) }
+        ?: rootProject.projectDir.resolve("portal")
+    val pdfRoot = System.getenv("TC_VACUUM_PDF_CONTENT_DIR")
+        ?.takeIf { it.isNotBlank() }
+        ?.let { file(it) }
         ?: rootProject.projectDir.parentFile.resolve("ChanKhongIOS/ChanKhong/WebContent")
     val htmlFile = portalRoot.resolve("index.html")
     val pdfFiles = listOf(
@@ -52,27 +56,26 @@ val preparePortalAssets by tasks.registering(Sync::class) {
         "光學薄膜技術講義印製--新--給學生(4).pdf" to "optical_film_lecture.pdf",
     )
     val webAssets = listOf(
-        "tc-vacuum-icon.png",
         "apple-touch-icon.png",
-        "icon-192.png",
-        "icon-512.png",
+        "vacuum-study-icon-192.png",
+        "vacuum-study-icon-512.png",
         "manifest.webmanifest",
-        "sw.js",
     )
 
     from(htmlFile) {
         rename { "index.html" }
         filteringCharset = "UTF-8"
         filter { line ->
-            var output = line.replace("target=\"_blank\"", "target=\"_self\"")
-            pdfFiles.forEach { (sourceName, assetName) ->
-                output = output.replace("href=\"./$sourceName\"", "href=\"./$assetName\"")
-            }
+            var output = line.replace("""target="_blank"""", """target="_self"""")
+            output = output
+                .replace("""href="./pdf/vacuum-lecture-chapters-0-4.pdf""", """href="./vacuum_lecture_00_04.pdf""")
+                .replace("""href="./pdf/vacuum-lecture-chapters-5-6.pdf""", """href="./vacuum_lecture_05_06.pdf""")
+                .replace("""href="./pdf/optical-film-lecture.pdf""", """href="./optical_film_lecture.pdf""")
             output
         }
     }
     pdfFiles.forEach { (sourceName, assetName) ->
-        from(portalRoot.resolve(sourceName)) {
+        from(pdfRoot.resolve(sourceName)) {
             rename { assetName }
         }
     }
