@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebChromeClient;
@@ -28,12 +29,10 @@ public class MainActivity extends Activity {
             "optical_film_lecture.pdf"
     ));
     private static final Set<String> WEB_ASSETS = new HashSet<>(Arrays.asList(
-            "tc-vacuum-icon.png",
             "apple-touch-icon.png",
-            "icon-192.png",
-            "icon-512.png",
-            "manifest.webmanifest",
-            "sw.js"
+            "vacuum-study-icon-192.png",
+            "vacuum-study-icon-512.png",
+            "manifest.webmanifest"
     ));
 
     private WebView webView;
@@ -41,8 +40,18 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setStatusBarColor(Color.rgb(8, 12, 20));
-        getWindow().setNavigationBarColor(Color.rgb(8, 12, 20));
+        // Keep WebView content below Android's status bar, including devices that
+        // opt into edge-to-edge layouts. A previous fullscreen/layout flag could
+        // make the page header draw behind the notification icons.
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN
+                | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+                | WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            getWindow().setDecorFitsSystemWindows(true);
+        }
+        getWindow().setStatusBarColor(Color.rgb(11, 15, 25));
+        getWindow().setNavigationBarColor(Color.rgb(11, 15, 25));
 
         webView = new WebView(this);
         webView.setBackgroundColor(Color.rgb(8, 12, 20));
@@ -86,8 +95,6 @@ public class MainActivity extends Activity {
                             String mimeType = "image/png";
                             if ("manifest.webmanifest".equals(assetName)) {
                                 mimeType = "application/manifest+json";
-                            } else if ("sw.js".equals(assetName)) {
-                                mimeType = "text/javascript";
                             }
                             return new WebResourceResponse(mimeType, "UTF-8",
                                     getAssets().open(assetName));
